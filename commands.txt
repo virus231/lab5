@@ -1,7 +1,5 @@
-aws sns create-topic --name Lab5
+aws sns create-topic --name lab5_2
 
-aws sns subscribe --topic-arn arn:aws:sns:us-west-1:520328915312:Lab5 --protocol email --notification-endpoint vladprodan6@gmail.com
+aws sns subscribe --topic-arn arn:aws:sns:eu-central-1:520328915312:lab5_2 --protocol email --notification-endpoint vladprodan6@gmail.com
 
-aws cloudwatch put-metric-alarm --alarm-name StatusCheck --alarm-description "Lab5" --metric-name HealthyHostCount --namespace AWS/ApplicationELB --statistic Minimum --dimensions Name=LoadBalancer,Value=app/Virus/bdef32fbfee54861 Name=TargetGroup,Value=targetgroup/lab4/58a0cfce285e039e --unit Count --period 300 --threshold 2 --evaluation-periods 2 --comparison-operator LessThanThreshold --alarm-actions arn:aws:sns:us-west-1:520328915312:Lab5 
-
-aws elbv2 deregister-targets --target-group-arn arn:aws:elasticloadbalancing:eu-central-1:520328915312:targetgroup/lab4/58a0cfce285e039e --targets Id=i-0a02b4cf8d8ed6caf
+aws cloudwatch put-metric-alarm --alarm-name StatusCheck --alarm-description "lab5_2" --metric-name HealthyHostCount --namespace AWS/ApplicationELB --statistic Minimum --dimensions Name=LoadBalancer,Value=app/Virus/bdef32fbfee54861 Name=TargetGroup,Value=targetgroup/lab4/58a0cfce285e039e --unit Count --period 300 --threshold 2 --evaluation-periods 2 --comparison-operator LessThanThreshold --alarm-actions arn:aws:sns:eu-central-1:520328915312:lab5_2
